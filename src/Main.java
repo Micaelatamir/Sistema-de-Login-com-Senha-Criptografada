@@ -45,7 +45,16 @@ public static void main(String[] args) {
         System.out.println(" login:");
         String login = sc.next();
         System.out.println(" Senha:");
-        String senh = sc.next();
+        String senha = sc.next();
+        String senhaLogin = sc.next();
+        usuariosLogado = UsuarioDao.login(emaillogin, senhaLogin);
+        if (usuariosLogado == null) {
+            System.out.println("Email ou senha incorretos!");
+            break;
+        }
+
+        System.out.println("Login realizado com sucesso!");
+        break;
 
 
     }
