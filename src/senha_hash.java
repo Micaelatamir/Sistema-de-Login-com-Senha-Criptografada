@@ -2,7 +2,7 @@ package util;
 
 import java.security.MessageDigest;
 
-public class HashSenha {
+public class senha_hash {
 
     public static String gerarHash(String senha) {
         try {

@@ -4,8 +4,6 @@ import model.Usuario;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.PreparedStatement;
 import java.security.MessageDigest;
 
@@ -27,6 +25,10 @@ public class UsuarioDAO {
 
             // GERAR HASH ANTES DE SALVAR
             String hash = gerarHash(usuario.getSenhaNormal());
+
+            // EXIBIR A SENHA HASH GERADA
+            System.out.println("Senha HASH gerada: " + hash);
+
             stmt.setString(3, hash);
 
             stmt.executeUpdate();
@@ -73,7 +75,6 @@ public class UsuarioDAO {
                 u.setId(rs.getInt("id"));
                 u.setNome(rs.getString("nome"));
                 u.setEmail(rs.getString("email"));
-                // não retornar senha
                 return u;
             }
 
